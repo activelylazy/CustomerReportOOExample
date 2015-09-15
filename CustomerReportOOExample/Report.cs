@@ -22,5 +22,10 @@ namespace CustomerReportOOExample
             ToAddress = toAddress;
             Body = body;
         }
+
+        public void SendAsEmail(IEmailer emailer)
+        {
+            emailer.Send(ToAddress, Body);
+        }
     }
 }
