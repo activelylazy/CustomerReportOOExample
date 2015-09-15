@@ -8,15 +8,13 @@ namespace CustomerReportOOExample
 {
     public interface IReport
     {
-        string ToAddress { get; }
-        string Body { get; }
         void SendAsEmail(IEmailer emailer);
     }
 
     public class Report : IReport
     {
-        public string ToAddress { get; private set; }
-        public string Body { get; private set; }
+        private string ToAddress { get; set; }
+        private string Body { get; set; }
 
         public Report(string toAddress, string body)
         {
