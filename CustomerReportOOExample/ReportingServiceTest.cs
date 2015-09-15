@@ -20,11 +20,18 @@ namespace CustomerReportOOExample
 
             var customerMock = new Mock<ICustomer>();
 
+            var reportMock = new Mock<IReport>();
+
             var expectedEmail = "fist@sea.com";
             var expectedReportBody = "the report body";
 
+            reportMock.SetupGet(x => x.ToAddress)
+                .Returns(expectedEmail);
+            reportMock.SetupGet(x => x.Body)
+                .Returns(expectedReportBody);
+
             customerMock.Setup(x => x.CreateReport())
-                .Returns(new Report(expectedEmail, expectedReportBody));
+                .Returns(reportMock.Object);
 
             customerDataMock.Setup(x => x.GetCustomersForCustomerReport())
                 .Returns(new[] { customerMock.Object });
