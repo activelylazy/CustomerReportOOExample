@@ -8,13 +8,13 @@ namespace CustomerReportOOExample
 {
     public class Report
     {
-        public string Recipient { get; private set; }
-        public string Text { get; private set; }
+        public string ToAddress { get; private set; }
+        public string Body { get; private set; }
 
-        public Report(string recipient, string text)
+        public Report(string toAddress, string body)
         {
-            Recipient = recipient;
-            Text = text;
+            ToAddress = toAddress;
+            Body = body;
         }
     }
 }
