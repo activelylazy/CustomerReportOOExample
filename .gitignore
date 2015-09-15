@@ -1,0 +1,6 @@
+*.suo
+bin
+Debug
+Release
+*.obj
+packages
