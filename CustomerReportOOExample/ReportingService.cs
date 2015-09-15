@@ -19,11 +19,9 @@ namespace CustomerReportOOExample
 
         public void RunCustomerReportBatch()
         {
-            var customers = CustomerData.GetCustomersForCustomerReport();
-
-            foreach (var customer in customers)
+            foreach (var report in CustomerData.GetCustomersForCustomerReport()
+                                        .Select(c => c.CreateReport()))
             {
-                var report = customer.CreateReport();
                 report.SendAsEmail(Emailer);
             }
         }
