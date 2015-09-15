@@ -24,7 +24,7 @@ namespace CustomerReportOOExample
             foreach (var customer in customers)
             {
                 var report = customer.CreateReport();
-                Emailer.Send(report.ToAddress, report.Body);
+                report.SendAsEmail(Emailer);
             }
         }
     }
