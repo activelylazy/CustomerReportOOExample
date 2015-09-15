@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerData.cs" />
-    <Compile Include="CustomerReportTest.cs" />
+    <Compile Include="ReportingServiceTest.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

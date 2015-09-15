@@ -9,7 +9,7 @@ using Moq;
 namespace CustomerReportOOExample
 {
     [TestFixture]
-    public class CustomerReportTest
+    public class ReportingServiceTest
     {
         [Test]
         public void RunCustomerReportBatchShouldSendReports()
