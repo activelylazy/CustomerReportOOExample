@@ -19,14 +19,17 @@ namespace CustomerReportOOExample
             var reportBuilderMock = new Mock<IReportBuilder>();
             var emailerMock = new Mock<IEmailer>();
 
-            var expectedCustomer = new Customer("fist@sea.com");
+            var customerMock = new Mock<ICustomer>();
+
+            customerMock.SetupGet(x => x.Email)
+                .Returns("fist@sea.com");
             var expectedReportBody = "the report body";
 
             customerDataMock.Setup(x => x.GetCustomersForCustomerReport())
-                .Returns(new[] { expectedCustomer });
+                .Returns(new[] { customerMock.Object });
 
-            reportBuilderMock.Setup(x => x.CreateCustomerReport(expectedCustomer))
-                .Returns(new Report(expectedCustomer.Email, expectedReportBody));
+            reportBuilderMock.Setup(x => x.CreateCustomerReport(customerMock.Object))
+                .Returns(new Report(customerMock.Object.Email, expectedReportBody));
 
             var sut = new ReportingService(
                 customerDataMock.Object,
@@ -37,7 +40,7 @@ namespace CustomerReportOOExample
             sut.RunCustomerReportBatch();
 
             // Assert
-            emailerMock.Verify(x => x.Send(expectedCustomer.Email, expectedReportBody));
+            emailerMock.Verify(x => x.Send(customerMock.Object.Email, expectedReportBody));
         }
     }
 }
