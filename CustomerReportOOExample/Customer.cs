@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CustomerReportOOExample
 {
-    public class Customer
+    public interface ICustomer
+    {
+        string Email { get; }
+    }
+
+    public class Customer : ICustomer
     {
         public string Email { get; private set; }
 

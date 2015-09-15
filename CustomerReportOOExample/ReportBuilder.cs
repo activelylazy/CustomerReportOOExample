@@ -8,12 +8,12 @@ namespace CustomerReportOOExample
 {
     public interface IReportBuilder
     {
-        Report CreateCustomerReport(Customer customer);
+        Report CreateCustomerReport(ICustomer customer);
     }
 
     public class ReportBuilder : IReportBuilder
     {
-        public Report CreateCustomerReport(Customer customer)
+        public Report CreateCustomerReport(ICustomer customer)
         {
             return new Report(customer.Email, "This is the report for {customer.Email}!");
         }

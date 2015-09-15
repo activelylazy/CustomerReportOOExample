@@ -8,12 +8,12 @@ namespace CustomerReportOOExample
 {
     public interface ICustomerData
     {
-        IEnumerable<Customer> GetCustomersForCustomerReport();
+        IEnumerable<ICustomer> GetCustomersForCustomerReport();
     }
 
     public class CustomerData : ICustomerData
     {
-        public IEnumerable<Customer> GetCustomersForCustomerReport()
+        public IEnumerable<ICustomer> GetCustomersForCustomerReport()
         {
             // pretend to do data access
             yield return new Customer("mike@mikelair.com");
