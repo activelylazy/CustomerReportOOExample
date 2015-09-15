@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomerReportOOExample
 {
-    class Program
+    public class Customer
     {
-        static void Main(string[] args)
+        public string Email { get; private set; }
+
+        public Customer(string email)
         {
+            Email = email;
         }
     }
 }
