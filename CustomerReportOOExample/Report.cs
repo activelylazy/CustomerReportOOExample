@@ -10,6 +10,7 @@ namespace CustomerReportOOExample
     {
         string ToAddress { get; }
         string Body { get; }
+        void SendAsEmail(IEmailer emailer);
     }
 
     public class Report : IReport
