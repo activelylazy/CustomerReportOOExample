@@ -55,7 +55,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
-    <Compile Include="ReportBuilder.cs" />
     <Compile Include="ReportingService.cs" />
   </ItemGroup>
   <ItemGroup>

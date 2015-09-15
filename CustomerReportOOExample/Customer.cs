@@ -8,16 +8,21 @@ namespace CustomerReportOOExample
 {
     public interface ICustomer
     {
-        string Email { get; }
+        IReport CreateReport();
     }
 
     public class Customer : ICustomer
     {
-        public string Email { get; private set; }
+        private string Email { get; set; }
 
         public Customer(string email)
         {
             Email = email;
+        }
+
+        public IReport CreateReport()
+        {
+            return new Report(Email, "This is the report for {customer.Email}!");
         }
     }
 }

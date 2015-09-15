@@ -8,15 +8,13 @@ namespace CustomerReportOOExample
 {
     public class ReportingService
     {
-        public ReportingService(ICustomerData customerData, IReportBuilder reportBuilder, IEmailer emailer)
+        public ReportingService(ICustomerData customerData, IEmailer emailer)
         {
             CustomerData = customerData;
-            ReportBuilder = reportBuilder;
             Emailer = emailer;
         }
 
         public ICustomerData CustomerData { get; private set; }
-        public IReportBuilder ReportBuilder { get; private set; }
         public IEmailer Emailer { get; private set; }
 
         public void RunCustomerReportBatch()
@@ -25,7 +23,7 @@ namespace CustomerReportOOExample
 
             foreach (var customer in customers)
             {
-                var report = ReportBuilder.CreateCustomerReport(customer);
+                var report = customer.CreateReport();
                 Emailer.Send(report.ToAddress, report.Body);
             }
         }
